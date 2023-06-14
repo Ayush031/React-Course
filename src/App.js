@@ -4,12 +4,7 @@ import './App.css';
 function App() {
   return (    
     <>
-    {/* navbar */}
-    <nav>
-      <li>HOME</li>
-      <li>ABOUT</li>
-      <li>CONTACT</li>
-    </nav>
+    
     </>      
   );
 }
