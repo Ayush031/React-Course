@@ -6,7 +6,7 @@ import Navbar from "./Components/Navbar";
 function App() {
   return (
     <>
-      <Navbar title="AyVerse" home="Home" />
+      <Navbar title="AyVerse" homeText="HOME" />
     </>
   );
 }
