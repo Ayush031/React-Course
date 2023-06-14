@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 
 export default function TextForm(pass) {
     const handleUpClick = () => {
-        console.log("Up Clicked");
+        // console.log("Up Clicked");
         let upText=text.toUpperCase();
         setText(upText);
     }
+    //mandatory to type in TextArea else throw Js error
     const handleOnChange = (event) => {
-        console.log("On Change");
+        // console.log("On Change");
         setText(event.target.value);
     }
     const [text, setText] = useState('Enter Text Here');
