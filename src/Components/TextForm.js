@@ -2,16 +2,29 @@ import React, { useState } from 'react'
 
 export default function TextForm(pass) {
     const handleUpClick = () => {
-        // console.log("Up Clicked");
-        let upText = text.toUpperCase();
-        setText(upText);
+        let newText = text.toUpperCase();
+        setText(newText);
     }
     const handleLowClick = () => {
-        // console.log("Up Clicked");
-        let upText = text.toLowerCase();
-        setText(upText);
+        let newText = text.toLowerCase();
+        setText(newText);
     }
-    //mandatory to type in TextArea else throw Js error
+    const handleClearText = () => {
+        let newText = '';
+        setText(newText);
+    }
+
+    const handleCopyText = (e) => {
+        setText(e.target.value);
+    }
+
+    const copyToClipboard = () => {
+        copy(copyText);
+        alert(`You have copied "${copyText}"`);
+    }
+
+
+    // onChange is mandatory to type in TextArea else throw Js error
     const handleOnChange = (event) => {
         // console.log("On Change");
         setText(event.target.value);
@@ -25,6 +38,8 @@ export default function TextForm(pass) {
                     <textarea className="form-control" value={text} onChange={handleOnChange} placeholder='Enter Text Here' id="myBox" rows="6"></textarea>
                     <button className="btn btn-primary my-3 mx-1" onClick={handleUpClick} >Convert to UpperCase</button>
                     <button className="btn btn-primary my-3 mx-1" onClick={handleLowClick} >Convert to LowerCase</button>
+                    <button className="btn btn-primary my-3 mx-1" onClick={handleClearText} >Clear Text</button>
+                    <button className="btn btn-primary my-3 mx-1" onClick={handleCopyText} >Copy Text</button>
                 </div>
             </div>
             <div className="container my-2">
