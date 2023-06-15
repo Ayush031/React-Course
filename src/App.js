@@ -22,7 +22,7 @@ function App() {
       setAlert(null);
     }, 2000);
   }
-
+  // used for toggling themes
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
