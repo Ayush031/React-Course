@@ -9,34 +9,39 @@ export default function TextForm(pass) {
         // console.log("On Change");
         setText(event.target.value);
     }
-    
+
     const handleUpClick = () => {
         let newText = text.toUpperCase();
         setText(newText);
-        pass.showAlert("Converted to Upper Case","success");
+        pass.showAlert("Converted to Upper Case", "success");
     }
     const handleLowClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
-        pass.showAlert("Converted to Lower Case","success");
+        pass.showAlert("Converted to Lower Case", "success");
     }
     const handleClearText = () => {
         let newText = '';
         setText(newText);
-        pass.showAlert("TextArea Cleared","success");
+        pass.showAlert("TextArea Cleared", "success");
     }
-    
+
     const handleCopyText = () => {
         let newText = document.getElementById("myBox");
-        newText.select();
-        navigator.clipboard.writeText(newText.value);        
-        pass.showAlert("Text Copied","success");
+        if (newText.value.length > 0) {
+            newText.select();
+            navigator.clipboard.writeText(newText.value);
+            pass.showAlert("Text Copied", "success");
+        }
+        else {
+            pass.showAlert("Enter Text to Copy", "warning");
+        }
     }
-    
+
     const handleExtraSpace = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
-        pass.showAlert("Exra Spaces are Removed","success");
+        pass.showAlert("Exra Spaces are Removed", "success");
     }
 
     return (
@@ -44,7 +49,8 @@ export default function TextForm(pass) {
             <div className="container">
                 <h1> {pass.heading} </h1>
                 <div className="mb-3">
-                    <textarea className="form-control" style={{ backgroundColor: pass.mode === 'dark' ? '#212529' : 'white', color: pass.mode === 'dark' ? 'white' : 'black' }} value={text} onChange={handleOnChange} placeholder='Enter Text Here' id="myBox" rows="6"></textarea>
+                    <textarea className="form-control" style={{ backgroundColor: pass.mode === 'dark' ? '#212529' : 'white',
+                     color: pass.mode === 'dark' ? 'white' : 'black' }} value={text} onChange={handleOnChange} placeholder='Enter Text Here' id="myBox" rows="6"></textarea>
                     <button className="btn btn-primary my-3 mx-1" onClick={handleUpClick} >Convert to UpperCase</button>
                     <button className="btn btn-primary my-3 mx-1" onClick={handleLowClick} >Convert to LowerCase</button>
                     <button className="btn btn-primary my-3 mx-1" onClick={handleClearText} >Clear Text</button>
