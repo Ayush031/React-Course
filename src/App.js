@@ -12,14 +12,14 @@ function App() {
     if (mode === 'light') {
       setMode('dark');
       setModeBtnTxt("Disable Dark Mode");
-      document.body.style.backgroundColor = 'grey';
+      document.body.style.backgroundColor = '#055160';
       document.body.style.color = 'white';
     }
     else {
       setMode('light');
       setModeBtnTxt("Enable Dark Mode");
       document.body.style.backgroundColor = 'white';
-      document.body.style.color = 'grey';
+      document.body.style.color = 'black';
     }
   }
 

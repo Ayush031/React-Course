@@ -28,8 +28,8 @@ export default function About() {
 
     return (
         <>
-            <div className="accordion container py-3" style={theme} id="accordionExample">
-                <h1>About Us</h1>
+            <div className='accordion container py-3' style={theme} id='accordionExample'>
+                <h1 className='my-3'>About Us</h1>
                 <div className="accordion-item">
                     <h2 className="accordion-header">
                         <button className="accordion-button" style={theme} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">

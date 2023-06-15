@@ -49,11 +49,11 @@ export default function TextForm(pass) {
                 </div>
             </div>
             <div className="container my-2">
-                <h1>Your Text Summary</h1>
+                <h2>Your Text Summary</h2>
                 <p>{text.split(" ").length} words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").length} minutes read</p>
                 <h2>Preview</h2>
-                <p>{text.length < 0 ? "Enter your text to preview here" : ""}</p>
+                <p>{text.length > 0 ? text : "Enter your text to preview here"}</p>
             </div>
         </>
     )
