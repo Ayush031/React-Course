@@ -12,10 +12,12 @@ function App() {
     if (mode === 'light') {
       setMode('dark');
       setModeBtnTxt("Enable Light Mode");
+      document.body.style.backgroundColor = 'grey';
     }
     else {
       setMode('light');
       setModeBtnTxt("Enable Dark Mode");
+      document.body.style.backgroundColor = 'white';
     }
   }
 
