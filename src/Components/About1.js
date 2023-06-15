@@ -2,30 +2,6 @@ import React, { useState } from 'react'
 
 export default function About(pass) {
 
-    const [theme, setTheme] = useState({
-        color: 'black',
-        backgroundColor: 'white'
-    })
-
-    const [themeBtn, setThemeBtn] = useState('Enable Dark Mode')
-
-    const toggleStyle = () => {
-        if (theme.color === 'black') {
-            setTheme({
-                color: 'white',
-                backgroundColor: 'black'
-            })
-            setThemeBtn('Enable Light Mode')
-        }
-        else {
-            setTheme({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setThemeBtn('Enable Dark Mode')
-        }
-    }
-
     return (
         <>
             {/* <div className='accordion container py-3' style={{ backgroundColor: pass.mode === 'dark' ? '#212529' : 'white' }} id='accordionExample'> */}
@@ -67,9 +43,6 @@ export default function About(pass) {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="container">
-                <button className="btn btn-primary my-3" onClick={toggleStyle} >{themeBtn}</button>
             </div>
         </>
     )
