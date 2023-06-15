@@ -9,30 +9,34 @@ export default function TextForm(pass) {
         // console.log("On Change");
         setText(event.target.value);
     }
-
+    
     const handleUpClick = () => {
         let newText = text.toUpperCase();
         setText(newText);
+        pass.showAlert("Converted to Upper Case","success");
     }
     const handleLowClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
+        pass.showAlert("Converted to Lower Case","success");
     }
     const handleClearText = () => {
         let newText = '';
         setText(newText);
+        pass.showAlert("TextArea Cleared","success");
     }
-
+    
     const handleCopyText = () => {
         let newText = document.getElementById("myBox");
         newText.select();
-        navigator.clipboard.writeText(newText.value);
-        alert(`Text Copied`);
+        navigator.clipboard.writeText(newText.value);        
+        pass.showAlert("Text Copied","success");
     }
-
+    
     const handleExtraSpace = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "));
+        pass.showAlert("Exra Spaces are Removed","success");
     }
 
     return (
