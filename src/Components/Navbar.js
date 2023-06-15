@@ -20,6 +20,10 @@ export default function Navbar(pass) {
                     </ul>
 
                     <div className={`form-check form-switch text-${pass.mode === 'light' ? 'dark' : 'light'} mx-3`}>
+                        <input className="form-check-input" onClick={pass.toggleModeGreen} type="checkbox" role="switch" />
+                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modeBtnTxt}</label>
+                    </div>
+                    <div className={`form-check form-switch text-${pass.mode === 'light' ? 'dark' : 'light'} mx-3`}>
                         <input className="form-check-input" onClick={pass.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modeBtnTxt}</label>
                     </div>

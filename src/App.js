@@ -20,7 +20,7 @@ function App() {
 
     setTimeout(() => {
       setAlert(null);
-    }, 1700);
+    }, 2000);
   }
 
   const toggleMode = () => {
@@ -40,9 +40,26 @@ function App() {
     }
   }
 
+  const toggleModeGreen = () => {
+    if (mode === 'light') {
+      setMode('green');
+      setModeBtnTxt("Disable green Mode");
+      document.body.style.backgroundColor = '#20c997';
+      document.body.style.color = 'black';
+      showAlert("Green Mode Enabled", "success");
+    }
+    else {
+      setMode('light');
+      setModeBtnTxt("Enable Green Mode");
+      document.body.style.backgroundColor = 'white';
+      document.body.style.color = 'black';
+      showAlert("Light Mode Enabled", "success");
+    }
+  }
+
   return (
     <>
-      <Navbar title="AyVerse" mode={mode} toggleMode={toggleMode} modeBtnTxt={modeBtnTxt} />
+      <Navbar title="AyVerse" mode={mode} toggleMode={toggleMode} toggleModeGreen={toggleModeGreen} modeBtnTxt={modeBtnTxt} />
       <Alert alert={alert} />
       <div className="container my-3">
         <TextForm heading="Enter Text Below: " mode={mode} toggleMode={toggleMode} showAlert={showAlert} />
