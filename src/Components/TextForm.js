@@ -40,7 +40,7 @@ export default function TextForm(pass) {
             <div className="container">
                 <h1> {pass.heading} </h1>
                 <div className="mb-3">
-                    <textarea className="form-control" value={text} onChange={handleOnChange} placeholder='Enter Text Here' id="myBox" rows="6"></textarea>
+                    <textarea className="form-control" style={{ backgroundColor: pass.mode === 'dark' ? '#212529' : 'white', color: pass.mode === 'dark' ? 'white' : 'black' }} value={text} onChange={handleOnChange} placeholder='Enter Text Here' id="myBox" rows="6"></textarea>
                     <button className="btn btn-primary my-3 mx-1" onClick={handleUpClick} >Convert to UpperCase</button>
                     <button className="btn btn-primary my-3 mx-1" onClick={handleLowClick} >Convert to LowerCase</button>
                     <button className="btn btn-primary my-3 mx-1" onClick={handleClearText} >Clear Text</button>
@@ -53,7 +53,7 @@ export default function TextForm(pass) {
                 <p>{text.split(" ").length} words and {text.length} characters</p>
                 <p>{0.008 * text.split(" ").length} minutes read</p>
                 <h2>Preview</h2>
-                <p>{text}</p>
+                <p>{text.length < 0 ? "Enter your text to preview here" : ""}</p>
             </div>
         </>
     )

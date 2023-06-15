@@ -11,13 +11,15 @@ function App() {
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
-      setModeBtnTxt("Enable Light Mode");
+      setModeBtnTxt("Disable Dark Mode");
       document.body.style.backgroundColor = 'grey';
+      document.body.style.color = 'white';
     }
     else {
       setMode('light');
       setModeBtnTxt("Enable Dark Mode");
       document.body.style.backgroundColor = 'white';
+      document.body.style.color = 'grey';
     }
   }
 
@@ -25,7 +27,7 @@ function App() {
     <>
       <Navbar title="AyVerse" mode={mode} toggleMode={toggleMode} modeBtnTxt={modeBtnTxt} />
       <div className="container my-3">
-        <TextForm heading="Enter Text Below: " />
+        <TextForm heading="Enter Text Below: " mode={mode} />
         <About />
       </div>
     </>
