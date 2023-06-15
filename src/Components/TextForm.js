@@ -1,6 +1,15 @@
 import React, { useState } from 'react'
 
 export default function TextForm(pass) {
+
+    const [text, setText] = useState('');
+
+    // onChange is mandatory to type in TextArea else throw Js error
+    const handleOnChange = (event) => {
+        // console.log("On Change");
+        setText(event.target.value);
+    }
+
     const handleUpClick = () => {
         let newText = text.toUpperCase();
         setText(newText);
@@ -14,22 +23,18 @@ export default function TextForm(pass) {
         setText(newText);
     }
 
-    const handleCopyText = (e) => {
-        setText(e.target.value);
+    const handleCopyText = () => {
+        let newText = document.getElementById("myBox");
+        newText.select();
+        navigator.clipboard.writeText(newText.value);
+        alert(`Text Copied`);
     }
 
-    const copyToClipboard = () => {
-        copy(copyText);
-        alert(`You have copied "${copyText}"`);
+    const handleExtraSpace = () => {
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "));
     }
 
-
-    // onChange is mandatory to type in TextArea else throw Js error
-    const handleOnChange = (event) => {
-        // console.log("On Change");
-        setText(event.target.value);
-    }
-    const [text, setText] = useState('');
     return (
         <>
             <div className="container">
@@ -40,6 +45,7 @@ export default function TextForm(pass) {
                     <button className="btn btn-primary my-3 mx-1" onClick={handleLowClick} >Convert to LowerCase</button>
                     <button className="btn btn-primary my-3 mx-1" onClick={handleClearText} >Clear Text</button>
                     <button className="btn btn-primary my-3 mx-1" onClick={handleCopyText} >Copy Text</button>
+                    <button className="btn btn-primary my-3 mx-1" onClick={handleExtraSpace} >Remove Extra Spaces</button>
                 </div>
             </div>
             <div className="container my-2">
