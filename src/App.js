@@ -37,6 +37,13 @@ function App() {
       document.body.style.color = 'white';
       setBtnColor('#055160');
       showAlert("Dark Mode Enabled", "success");
+      // document.title = "Text";
+      // setInterval(() => {
+      //   document.title = "Text Utils is Amazing";
+      // }, 1000);
+      // setInterval(() => {
+      //   document.title = "Install Text Utils is Amazing";
+      // }, 1000);
     }
     else {
       setMode('light');
@@ -45,6 +52,7 @@ function App() {
       document.body.style.color = 'black';
       setBtnColor('#2b2f32');
       setBtnTxtColor('white');
+      // document.title = "TextUtlis"
       showAlert("Light Mode Enabled", "success");
     }
   }
