@@ -14,7 +14,8 @@ function App() {
   const [modeBtnTxt, setModeBtnTxt] = useState("Enable Dark Mode");
   const [modeGreenBtnTxt, setModeGreenBtnTxt] = useState("Enable Green Mode");
   const [modePinkBtnTxt, setModePinkBtnTxt] = useState("Enable Pink Mode");
-  const [btnColor, setBtnColor] = useState('white');
+  const [btnColor, setBtnColor] = useState('#2b2f32');
+  const [btnTxtColor, setBtnTxtColor] = useState('white');
 
   const showAlert = (message, type) => {
     setAlert({
@@ -42,6 +43,8 @@ function App() {
       setModeBtnTxt("Enable Dark Mode");
       document.body.style.backgroundColor = 'white';
       document.body.style.color = 'black';
+      setBtnColor('#2b2f32');
+      setBtnTxtColor('white');
       showAlert("Light Mode Enabled", "success");
     }
   }
@@ -61,6 +64,8 @@ function App() {
       document.body.style.backgroundColor = 'white';
       document.body.style.color = 'black';
       setMode('light');
+      setBtnColor('#2b2f32');
+      setBtnTxtColor('white');
       setModePinkBtnTxt("Enable Pink Mode");
       showAlert("Light Mode Enabled", "success");
     }
@@ -82,29 +87,17 @@ function App() {
       document.body.style.backgroundColor = 'white';
       document.body.style.color = 'black';
       showAlert("Light Mode Enabled", "success");
+      setBtnColor('#2b2f32');
+      setBtnTxtColor('white');
     }
   }
-  // const btnColorFn = () => {
-  //   if (mode === 'dark') {
-  //     setBtnColor('#055160');
-  //   }
-  //   else if (mode === 'pink') {
-  //     setBtnColor('#6610f2');
-  //   }
-  //   else if (mode === 'green') {
-  //     setBtnColor('#20c997');
-  //   }
-  //   else {
-  //     setBtnColor('white');
-  //   }
-  // }
 
   return (
     <>
       <Navbar title="AyVerse" mode={mode} toggleMode={toggleMode} toggleModeGreen={toggleModeGreen} toggleModePink={toggleModePink} modeBtnTxt={modeBtnTxt} modeGreenBtnTxt={modeGreenBtnTxt} modePinkBtnTxt={modePinkBtnTxt} />
       <Alert alert={alert} />
       <div className="container my-3">
-        <TextForm heading="Enter Text Below: " mode={mode} toggleMode={toggleMode} showAlert={showAlert} btnColor={btnColor} />
+        <TextForm heading="Enter Text Below: " mode={mode} toggleMode={toggleMode} showAlert={showAlert} btnColor={btnColor} btnTxtColor={btnTxtColor} />
         <About1 mode={mode} toggleMode={toggleMode} />
       </div>
     </>
