@@ -18,11 +18,17 @@ export default function Navbar(pass) {
                             <a className="nav-link" href="/">About</a>
                         </li>
                     </ul>
-
-                    <div className={`form-check form-switch text-${pass.mode === 'light' ? 'dark' : 'light'} mx-3`}>
-                        <input className="form-check-input" onClick={pass.toggleModeGreen} type="checkbox" role="switch" />
-                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modeBtnTxt}</label>
+                    {/* Pink Mode Switch */}
+                    <div className={`form-check form-switch text-${pass.mode === 'pink' ? 'light' : 'dark'} mx-3`}>
+                        <input className="form-check-input" onClick={pass.toggleModePink} type="checkbox" role="switch" />
+                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modePinkBtnTxt}</label>
                     </div>
+                    {/* Green Mode Switch */}
+                    <div className={`form-check form-switch text-${pass.mode === 'green' ? 'light' : 'dark'} mx-3`}>
+                        <input className="form-check-input" onClick={pass.toggleModeGreen} type="checkbox" role="switch" />
+                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modeGreenBtnTxt}</label>
+                    </div>
+                    {/* Dark Mode Switch */}
                     <div className={`form-check form-switch text-${pass.mode === 'light' ? 'dark' : 'light'} mx-3`}>
                         <input className="form-check-input" onClick={pass.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modeBtnTxt}</label>
