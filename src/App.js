@@ -6,7 +6,6 @@ import TextForm from "./Components/TextForm";
 import About1 from "./Components/About1";
 import Alert from "./Components/Alert";
 
-
 function App() {
   const [alert, setAlert] = useState(null);
 
