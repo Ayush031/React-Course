@@ -44,18 +44,36 @@ export default function TextForm(pass) {
         pass.showAlert("Exra Spaces are Removed", "success");
     }
 
+    const validModes = ['dark', 'green', 'pink'];
+
+    // const [btnColor, setBtnColor] = useState('white');
+
+    // const btnColorFn = () => {
+    //     if (pass.mode === 'dark') {
+    //         setBtnColor = '#055160';
+    //     }
+    //     else if (pass.mode === 'pink') {
+    //         setBtnColor = '#6610f2';
+    //     }
+    //     else if (pass.mode === 'green') {
+    //         setBtnColor = '#20c997';
+    //     }
+    //     else {
+    //         setBtnColor = 'white';
+    //     }
+    // }
+
     return (
         <>
             <div className="container">
                 <h1> {pass.heading} </h1>
                 <div className="mb-3">
-                    <textarea className="form-control" style={{ backgroundColor: pass.mode === 'dark' ? '#212529' : 'white',
-                     color: pass.mode === 'dark' ? 'white' : 'black' }} value={text} onChange={handleOnChange} placeholder='Enter Text Here' id="myBox" rows="6"></textarea>
-                    <button className="btn btn-primary my-3 mx-1" onClick={handleUpClick} >Convert to UpperCase</button>
-                    <button className="btn btn-primary my-3 mx-1" onClick={handleLowClick} >Convert to LowerCase</button>
-                    <button className="btn btn-primary my-3 mx-1" onClick={handleClearText} >Clear Text</button>
-                    <button className="btn btn-primary my-3 mx-1" onClick={handleCopyText} >Copy Text</button>
-                    <button className="btn btn-primary my-3 mx-1" onClick={handleExtraSpace} >Remove Extra Spaces</button>
+                    <textarea className="form-control" style={{ backgroundColor: validModes.includes(pass.mode) ? '#212529' : 'white', color: validModes.includes(pass.mode) ? 'white' : 'black' }} value={text} onChange={handleOnChange} placeholder='Enter Text Here' id="myBox" rows="6"></textarea>
+                    <button className="btn btn-primary my-3 mx-1" style={{ backgroundColor: pass.btnColor, color: validModes.includes(pass.mode) ? 'white' : 'black' }} onClick={handleUpClick} >Convert to UpperCase</button>
+                    <button className="btn btn-primary my-3 mx-1" style={{ backgroundColor: pass.btnColor, color: validModes.includes(pass.mode) ? 'white' : 'black' }} onClick={handleLowClick} >Convert to LowerCase</button>
+                    <button className="btn btn-primary my-3 mx-1" style={{ backgroundColor: pass.btnColor, color: validModes.includes(pass.mode) ? 'white' : 'black' }} onClick={handleClearText} >Clear Text</button>
+                    <button className="btn btn-primary my-3 mx-1" style={{ backgroundColor: pass.btnColor, color: validModes.includes(pass.mode) ? 'white' : 'black' }} onClick={handleCopyText} >Copy Text</button>
+                    <button className="btn btn-primary my-3 mx-1" style={{ backgroundColor: pass.btnColor, color: validModes.includes(pass.mode) ? 'white' : 'black' }} onClick={handleExtraSpace} >Remove Extra Spaces</button>
                 </div>
             </div>
             <div className="container my-2">

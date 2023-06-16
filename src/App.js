@@ -14,6 +14,7 @@ function App() {
   const [modeBtnTxt, setModeBtnTxt] = useState("Enable Dark Mode");
   const [modeGreenBtnTxt, setModeGreenBtnTxt] = useState("Enable Green Mode");
   const [modePinkBtnTxt, setModePinkBtnTxt] = useState("Enable Pink Mode");
+  const [btnColor, setBtnColor] = useState('white');
 
   const showAlert = (message, type) => {
     setAlert({
@@ -25,16 +26,15 @@ function App() {
     //   setAlert(null);
     // }, 3000);
   }
-  // used for toggling themes
   const toggleMode = () => {
     if (mode === 'light' || mode === 'green' || mode === 'pink') {
-    // if (mode === 'light') {
       setMode('dark');
       setModeBtnTxt("Disable Dark Mode");
       setModePinkBtnTxt("Enable Pink Mode");
       setModeGreenBtnTxt("Enable Green Mode");
       document.body.style.backgroundColor = '#055160';
       document.body.style.color = 'white';
+      setBtnColor('#055160');
       showAlert("Dark Mode Enabled", "success");
     }
     else {
@@ -45,9 +45,7 @@ function App() {
       showAlert("Light Mode Enabled", "success");
     }
   }
-
   const toggleModePink = () => {
-    // if (mode === 'dark' || mode === 'green' || mode === 'light') {
     if (mode === 'dark' || mode === 'green' || mode === 'light') {
       document.body.style.color = 'black';
       document.body.style.backgroundColor = '#6610f2';
@@ -55,6 +53,7 @@ function App() {
       setModeGreenBtnTxt("Enable Green Mode");
       setModeBtnTxt("Enable Dark Mode");
       setModePinkBtnTxt("Disable Pink Mode");
+      setBtnColor('#6610f2');
       showAlert("Pink Mode Enabled", "success");
 
     }
@@ -74,6 +73,7 @@ function App() {
       setModeBtnTxt("Enable Dark Mode");
       document.body.style.backgroundColor = '#20c997';
       document.body.style.color = 'black';
+      setBtnColor('#20c997');
       showAlert("Green Mode Enabled", "success");
     }
     else {
@@ -84,14 +84,27 @@ function App() {
       showAlert("Light Mode Enabled", "success");
     }
   }
+  // const btnColorFn = () => {
+  //   if (mode === 'dark') {
+  //     setBtnColor('#055160');
+  //   }
+  //   else if (mode === 'pink') {
+  //     setBtnColor('#6610f2');
+  //   }
+  //   else if (mode === 'green') {
+  //     setBtnColor('#20c997');
+  //   }
+  //   else {
+  //     setBtnColor('white');
+  //   }
+  // }
 
   return (
     <>
       <Navbar title="AyVerse" mode={mode} toggleMode={toggleMode} toggleModeGreen={toggleModeGreen} toggleModePink={toggleModePink} modeBtnTxt={modeBtnTxt} modeGreenBtnTxt={modeGreenBtnTxt} modePinkBtnTxt={modePinkBtnTxt} />
       <Alert alert={alert} />
       <div className="container my-3">
-        <TextForm heading="Enter Text Below: " mode={mode} toggleMode={toggleMode} showAlert={showAlert} />
-        {/* <About/> */}
+        <TextForm heading="Enter Text Below: " mode={mode} toggleMode={toggleMode} showAlert={showAlert} btnColor={btnColor} />
         <About1 mode={mode} toggleMode={toggleMode} />
       </div>
     </>
