@@ -104,7 +104,7 @@ function App() {
       <Navbar title="AyVerse" mode={mode} toggleMode={toggleMode} toggleModeGreen={toggleModeGreen} toggleModePink={toggleModePink} modeBtnTxt={modeBtnTxt} modeGreenBtnTxt={modeGreenBtnTxt} modePinkBtnTxt={modePinkBtnTxt} />
       <Alert alert={alert} />
       <div className="container my-3">
-        {/* <TextForm heading="Enter Text Below: " mode={mode} toggleMode={toggleMode} showAlert={showAlert} btnColor={btnColor} btnTxtColor={btnTxtColor} /> */}
+        <TextForm heading="Enter Text Below: " mode={mode} toggleMode={toggleMode} showAlert={showAlert} btnColor={btnColor} btnTxtColor={btnTxtColor} />
         <About1 mode={mode} toggleMode={toggleMode} />
       </div>
     </>

@@ -41,19 +41,19 @@ export default function Navbar(pass) {
                         </li>
                     </ul>
                     {/* Pink Mode Switch */}
-                    <div className={`form-check form-switch text-${pass.mode === 'pink' ? 'light' : 'dark'} mx-3`}>
+                    <div className={`form-check form-switch text-${pass.mode === 'pink'||pass.mode === 'green'||pass.mode === 'dark' ? 'light' : 'dark'} mx-3`}>
                         <input className="form-check-input" onClick={pass.toggleModePink} type="checkbox" role="switch" name='switch' checked={isChecked1}
                             onChange={() => handleSwitchChange('switch1')} />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modePinkBtnTxt}</label>
                     </div>
                     {/* Green Mode Switch */}
-                    <div className={`form-check form-switch text-${pass.mode === 'green' ? 'light' : 'dark'} mx-3`}>
+                    <div className={`form-check form-switch text-${pass.mode === 'pink'||pass.mode === 'green'||pass.mode === 'dark' ? 'light' : 'dark'} mx-3`}>
                         <input className="form-check-input" onClick={pass.toggleModeGreen} type="checkbox" role="switch" name='switch' checked={isChecked2}
                             onChange={() => handleSwitchChange('switch2')} />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modeGreenBtnTxt}</label>
                     </div>
                     {/* Dark Mode Switch */}
-                    <div className={`form-check form-switch text-${pass.mode === 'light' ? 'dark' : 'light'} mx-3`}>
+                    <div className={`form-check form-switch text-${pass.mode === 'pink'||pass.mode === 'green'||pass.mode === 'dark'? 'light' : 'dark'} mx-3`}>
                         <input className="form-check-input" onClick={pass.toggleMode} type="checkbox" role="switch" name='switch' checked={isChecked3}
                             onChange={() => handleSwitchChange('switch3')} />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modeBtnTxt}</label>
