@@ -26,6 +26,7 @@ function App() {
       setAlert(null);
     }, 2500);
   }
+  
   const toggleMode = () => {
     if (mode === 'light' || mode === 'green' || mode === 'pink') {
       setMode('dark');
