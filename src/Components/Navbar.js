@@ -1,7 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
 import propTypes from 'prop-types'
 
+
 export default function Navbar(pass) {
+    // const { mode, title, homeText, toggleModePink, toggleModeGreen, toggleMode, modePinkBtnTxt, modeGreenBtnTxt, modeBtnTxt } = props;
+    const [isChecked1, setIsChecked1] = useState(false);
+    const [isChecked2, setIsChecked2] = useState(false);
+    const [isChecked3, setIsChecked3] = useState(false);
+
+    const handleSwitchChange = (switchValue) => {
+        if (switchValue === 'switch1') {
+            setIsChecked1(!isChecked1);
+            setIsChecked2(false);
+            setIsChecked3(false);
+        } else if (switchValue === 'switch2') {
+            setIsChecked1(false);
+            setIsChecked2(!isChecked2);
+            setIsChecked3(false);
+        } else if (switchValue === 'switch3') {
+            setIsChecked1(false);
+            setIsChecked2(false);
+            setIsChecked3(!isChecked3);
+        }
+    };
+
     return (
         <nav className={`navbar navbar-expand-lg navbar-${pass.mode === 'pink' || pass.mode === 'dark' || pass.mode === 'green' ? 'dark' : 'light'} bg-${pass.mode === 'pink' || pass.mode === 'dark' || pass.mode === 'green' ? 'dark' : 'light'}`}>
             <div className="container-fluid">
@@ -20,17 +42,20 @@ export default function Navbar(pass) {
                     </ul>
                     {/* Pink Mode Switch */}
                     <div className={`form-check form-switch text-${pass.mode === 'pink' ? 'light' : 'dark'} mx-3`}>
-                        <input className="form-check-input" onClick={pass.toggleModePink} type="checkbox" role="switch" />
+                        <input className="form-check-input" onClick={pass.toggleModePink} type="checkbox" role="switch" name='switch' checked={isChecked1}
+                            onChange={() => handleSwitchChange('switch1')} />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modePinkBtnTxt}</label>
                     </div>
                     {/* Green Mode Switch */}
                     <div className={`form-check form-switch text-${pass.mode === 'green' ? 'light' : 'dark'} mx-3`}>
-                        <input className="form-check-input" onClick={pass.toggleModeGreen} type="checkbox" role="switch" />
+                        <input className="form-check-input" onClick={pass.toggleModeGreen} type="checkbox" role="switch" name='switch' checked={isChecked2}
+                            onChange={() => handleSwitchChange('switch2')} />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modeGreenBtnTxt}</label>
                     </div>
                     {/* Dark Mode Switch */}
                     <div className={`form-check form-switch text-${pass.mode === 'light' ? 'dark' : 'light'} mx-3`}>
-                        <input className="form-check-input" onClick={pass.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                        <input className="form-check-input" onClick={pass.toggleMode} type="checkbox" role="switch" name='switch' checked={isChecked3}
+                            onChange={() => handleSwitchChange('switch3')} />
                         <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{pass.modeBtnTxt}</label>
                     </div>
 

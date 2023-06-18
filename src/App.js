@@ -8,7 +8,6 @@ import Alert from "./Components/Alert";
 
 function App() {
   const [alert, setAlert] = useState(null);
-
   const [mode, setMode] = useState('light');
   const [modeBtnTxt, setModeBtnTxt] = useState("Enable Dark Mode");
   const [modeGreenBtnTxt, setModeGreenBtnTxt] = useState("Enable Green Mode");
@@ -26,7 +25,7 @@ function App() {
       setAlert(null);
     }, 2500);
   }
-  
+
   const toggleMode = () => {
     if (mode === 'light' || mode === 'green' || mode === 'pink') {
       setMode('dark');
