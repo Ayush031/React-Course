@@ -6,7 +6,15 @@ import TextForm from "./Components/TextForm";
 import About1 from "./Components/About1";
 import Alert from "./Components/Alert";
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route 
+} from "react-router-dom";
+
+
 function App() {
+
   const [alert, setAlert] = useState(null);
   const [mode, setMode] = useState('light');
   const [modeBtnTxt, setModeBtnTxt] = useState("Enable Dark Mode");
@@ -25,7 +33,6 @@ function App() {
       setAlert(null);
     }, 2500);
   }
-
   const toggleMode = () => {
     if (mode === 'light' || mode === 'green' || mode === 'pink') {
       setMode('dark');
@@ -101,12 +108,16 @@ function App() {
 
   return (
     <>
-      <Navbar title="AyVerse" mode={mode} toggleMode={toggleMode} toggleModeGreen={toggleModeGreen} toggleModePink={toggleModePink} modeBtnTxt={modeBtnTxt} modeGreenBtnTxt={modeGreenBtnTxt} modePinkBtnTxt={modePinkBtnTxt} />
-      <Alert alert={alert} />
-      <div className="container my-3">
-        <TextForm heading="Enter Text Below: " mode={mode} toggleMode={toggleMode} showAlert={showAlert} btnColor={btnColor} btnTxtColor={btnTxtColor} />
-        <About1 mode={mode} toggleMode={toggleMode} />
-      </div>
+      <Router>
+        <Navbar title="AyVerse" mode={mode} toggleMode={toggleMode} toggleModeGreen={toggleModeGreen} toggleModePink={toggleModePink} modeBtnTxt={modeBtnTxt} modeGreenBtnTxt={modeGreenBtnTxt} modePinkBtnTxt={modePinkBtnTxt} />
+        <Alert alert={alert} />
+        <div className="container my-3">
+          <Routes>
+            <Route path="/About1" element={<About1 mode={mode} toggleMode={toggleMode} />} />
+            <Route path="/" element={<TextForm heading="Enter Text Below: " mode={mode} toggleMode={toggleMode} showAlert={showAlert} btnColor={btnColor} btnTxtColor={btnTxtColor} />} />
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
